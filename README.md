@@ -2,8 +2,12 @@
 插件提供了打印结束回调,结果没用!!!  
 fork了一份自己改了下;
 增加打印之前的回调和打印之后的回调
-callback(): 打印之前的回调
-endCallback(): 打印之后的回调
+callback(): 打印之前的回调  
+
+endCallback(): 打印之后的回调  
+
+<a href="https://github.com/Harley-K/vue-print-nb-z" target="_blank">源码</a>
+
 
 # vue-print-nb
 
