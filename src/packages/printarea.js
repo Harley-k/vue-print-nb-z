@@ -13,8 +13,9 @@ export default class {
       extraHead: '', // 附加在head标签上的额外元素,使用逗号分隔
       extraCss: '', // 额外的css逗号分隔
       popTitle: '', // 标题
-      endCallback: null, // 成功打开后的回调函数
-      ids: '' // 局部打印的id
+      endCallback: null, // 窗口按钮回调事件 
+      ids: '', // 局部打印的id,
+      callback:null,//打开窗口后的回调函数
     };
     Object.assign(this.settings, option);
 
@@ -26,7 +27,7 @@ export default class {
     let PrintAreaWindow = this.getPrintWindow(); // 创建iframe
     this.write(PrintAreaWindow.doc); // 写入内容
     this.print(PrintAreaWindow);
-    this.settings.endCallback();
+    this.settings.callback();
 
   }
   print(PAWindow) {
@@ -37,12 +38,13 @@ export default class {
       try {
         let box = document.getElementById(this.settings.id);
         let canvasList = this.elsdom.querySelectorAll('.canvasImg')
-        console.log(this.elsdom)
+        // console.log(this.elsdom)
         for (let i = 0; i < canvasList.length; i++) {
           let _parent = canvasList[i].parentNode
           _parent.removeChild(canvasList[i])
         }
         box.parentNode.removeChild(box);
+        this.settings.endCallback()
       } catch (e) {
         console.log(e);
       }
@@ -107,7 +109,9 @@ export default class {
             }
           }
         } catch (e) {
-          console.log(domStyle[i].href + e);
+          console.error(domStyle[i].href );
+          console.error('+error:'+ e)
+          // console (domStyle[i].href +'error:'+ e);
         }
       }
     }

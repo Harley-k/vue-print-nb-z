@@ -1,3 +1,11 @@
+<!--
+ * @Author: Lyun
+ * @Date: 2020-07-28 08:36:52
+ * @LastEditTime: 2020-07-28 10:08:19
+ * @LastEditors: Do not edit
+ * @FilePath: \vue-print-nb-z\src\App.vue
+ * @Description: ...
+--> 
 <template>
 	<div id="app">
 		<button v-print="printObj">Print the entire page</button>
@@ -47,11 +55,11 @@
 			return {
 				printObj: {
 					id: "printMe",
-					popTitle: 'good print',
-					extraCss: 'https://www.baidu.com/,https://www.baidu.com/',
-					extraHead: '<meta http-equiv="Content-Language"content="zh-cn"/>',
 					callback(){
-						console.log(1)
+						console.log('打开打印页的回调')
+					},
+					endCallback(){
+						console.log('打开完毕操作之后的回调')
 					}
 				}
 			};

@@ -1,9 +1,9 @@
 /*
  * @Author: Lyun
  * @Date: 2020-01-14 01:41:04
- * @LastEditTime: 2020-07-28 07:58:36
+ * @LastEditTime: 2020-07-28 10:05:15
  * @LastEditors: Do not edit
- * @FilePath: \vue-print-nb-master\src\packages\print.js
+ * @FilePath: \vue-print-nb-z\src\packages\print.js
  * @Description: ...
  */ 
 import Print from './printarea.js';
@@ -41,15 +41,18 @@ export default {
 		const localPrint = () => {
 			if (closeBtn) {
 				closeBtn = false;
-				
 				new Print({
 					ids: id, // * 局部打印必传入id
 					standard: '', // 文档类型，默认是html5，可选 html5，loose，strict
 					extraHead: binding.value.extraHead, // 附加在head标签上的额外标签,使用逗号分隔
 					extraCss: binding.value.extraCss, // 额外的css连接，多个逗号分开
 					popTitle: binding.value.popTitle, // title的标题
-					endCallback() { // 调用打印之后的回调事件
+					callback(){
 						binding.value.callback()
+					},
+					endCallback() { // 调用打印之后的回调事件
+						closeBtn = true;
+						binding.value.endCallback()
 					}
 				});
 			}
