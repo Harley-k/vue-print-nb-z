@@ -1,6 +1,9 @@
 # FAQ
 插件提供了打印结束回调,结果没用!!!  
 fork了一份自己改了下;
+增加打印之前的回调和打印之后的回调
+callback(): 打印之前的回调
+endCallback(): 打印之后的回调
 
 # vue-print-nb
 
@@ -100,7 +103,8 @@ You can also pass in an object type `Objcet`
 * `extraHead`: Additional tags attached to the head tag, separated by commas
 * `extraCss`:  Additional link connections, separated by commas
 * `popTitle`: Title shows the title
-* `endCallback()`: Callback events after printing
+* `callback()`: 打印之前的回调
+* `endCallback()`: 打印之后的回调
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
