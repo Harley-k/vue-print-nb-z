@@ -27,7 +27,9 @@ export default class {
     let PrintAreaWindow = this.getPrintWindow(); // 创建iframe
     this.write(PrintAreaWindow.doc); // 写入内容
     this.print(PrintAreaWindow);
-    this.settings.callback();
+    if(settings.endCallback!==null){
+      this.settings.callback();
+    }
 
   }
   print(PAWindow) {
@@ -44,7 +46,9 @@ export default class {
           _parent.removeChild(canvasList[i])
         }
         box.parentNode.removeChild(box);
-        this.settings.endCallback()
+        if(settings.endCallback!==null){
+          this.settings.endCallback()
+        }
       } catch (e) {
         console.log(e);
       }

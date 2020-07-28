@@ -1,7 +1,7 @@
 {
   "name": "vue-print-nb-z",
-  "version": "1.0.4",
-  "description": "Vue plug-in, print! Good!",
+  "version": "1.0.5",
+  "description": "修改了vue-print-nb,增加了callback和endcallback ",
   "main": "lib/tag-textarea.umd.min.js",
   "author": "harley-k",
   "private": false,
