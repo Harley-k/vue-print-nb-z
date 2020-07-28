@@ -1,3 +1,7 @@
+# FAQ
+插件提供了打印结束回调,结果没用!!!  
+fork了一份自己改了下;
+
 # vue-print-nb
 
 This is a directive wrapper for printed, Simple, fast, convenient, light.
