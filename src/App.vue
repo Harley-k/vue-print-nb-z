@@ -1,7 +1,7 @@
 <!--
  * @Author: Lyun
  * @Date: 2020-07-28 08:36:52
- * @LastEditTime: 2020-07-28 10:55:18
+ * @LastEditTime: 2020-07-28 15:43:59
  * @LastEditors: Do not edit
  * @FilePath: \vue-print-nb-z\src\App.vue
  * @Description: ...
@@ -43,7 +43,7 @@
 </template>
 <style type="text/css">
 	p {
-		color: blue;
+		font-size: 50px;
 	}
 </style>
 <script>
@@ -55,12 +55,7 @@
 			return {
 				printObj: {
 					id: "printMe",
-					callback(){
-						console.log('打开打印页的回调')
-					},
-					endCallback(){
-						console.log('打开完毕操作之后的回调')
-					}
+					mode:0
 				}
 			};
 		},

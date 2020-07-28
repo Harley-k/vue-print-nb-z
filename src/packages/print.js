@@ -1,7 +1,7 @@
 /*
  * @Author: Lyun
  * @Date: 2020-01-14 01:41:04
- * @LastEditTime: 2020-07-28 10:55:44
+ * @LastEditTime: 2020-07-28 15:31:29
  * @LastEditors: Do not edit
  * @FilePath: \vue-print-nb-z\src\packages\print.js
  * @Description: ...
@@ -35,6 +35,9 @@ export default {
 					// 直接全局打印
 					window.print();
 				}
+				// if(binding.value.mode){
+
+				// }
 			});
 
 		});
@@ -47,6 +50,7 @@ export default {
 					extraHead: binding.value.extraHead, // 附加在head标签上的额外标签,使用逗号分隔
 					extraCss: binding.value.extraCss, // 额外的css连接，多个逗号分开
 					popTitle: binding.value.popTitle, // title的标题
+					mode:binding.value.mode?1:0,//横竖打印
 					callback(){
 						if(typeof binding.value.callback ==='function'){
 							binding.value.callback()

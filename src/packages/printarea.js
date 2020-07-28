@@ -124,10 +124,14 @@ export default class {
       this.settings.extraCss.replace(/([^,\s]+)/g, (m) => {
         links += `<link type="text/css" rel="stylesheet" href="${m}">`;
       });
-
     }
-
-    return `<head><title>${this.settings.popTitle}</title>${extraHead}${links}<style type="text/css">${style}</style></head>`;
+    let modeStyle = '<style>@page {size: portrait }</style>'
+    console.log(this.settings.mode)
+    if(this.settings.mode){
+      modeStyle = '<style>@page {size: landscape }</style>'
+    }
+    console.log(modeStyle)
+    return `<head><title>${this.settings.popTitle}</title>${extraHead}${links}<style type="text/css">${style}</style>${modeStyle}</head>`;
   }
   getBody() {
     let ids = this.settings.ids;
@@ -249,7 +253,6 @@ export default class {
     if (iframe.doc == null) {
       throw new Error('Cannot find document.');
     }
-
     return iframe;
   }
 }
