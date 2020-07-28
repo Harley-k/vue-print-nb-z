@@ -1,7 +1,7 @@
 /*
  * @Author: Lyun
  * @Date: 2020-01-14 01:41:04
- * @LastEditTime: 2020-07-28 10:05:15
+ * @LastEditTime: 2020-07-28 10:55:44
  * @LastEditors: Do not edit
  * @FilePath: \vue-print-nb-z\src\packages\print.js
  * @Description: ...
@@ -48,11 +48,16 @@ export default {
 					extraCss: binding.value.extraCss, // 额外的css连接，多个逗号分开
 					popTitle: binding.value.popTitle, // title的标题
 					callback(){
-						binding.value.callback()
+						if(typeof binding.value.callback ==='function'){
+							binding.value.callback()
+						}
 					},
 					endCallback() { // 调用打印之后的回调事件
 						closeBtn = true;
-						binding.value.endCallback()
+						if(typeof binding.value.endCallback ==='function'){
+							binding.value.endCallback()
+
+						}
 					}
 				});
 			}
