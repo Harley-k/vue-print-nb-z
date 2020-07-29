@@ -6,7 +6,7 @@ callback(): 打印之前的回调
 
 endCallback(): 打印之后的回调  
 
-mode: 打印方向,默认竖向,不为false为横向
+mode: 打印方向,默认竖向,1为横向,0横向
 
 <a href="https://github.com/Harley-K/vue-print-nb-z" target="_blank">源码</a>
 
@@ -111,7 +111,7 @@ You can also pass in an object type `Objcet`
 * `popTitle`: Title shows the title
 * `callback()`: 打印之前的回调
 * `endCallback()`: 打印之后的回调
-* `mode`: 打印方向,默认竖向,不为false为横向
+* `mode`: 打印方向,默认竖向,1为横向,0横向
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
