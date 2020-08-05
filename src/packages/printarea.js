@@ -22,14 +22,17 @@ export default class {
     this.init();
   }
   init() {
-    this.counter++;
-    this.settings.id = `printArea_${this.counter}`;
-    let PrintAreaWindow = this.getPrintWindow(); // 创建iframe
-    this.write(PrintAreaWindow.doc); // 写入内容
-    this.print(PrintAreaWindow);
     if(this.settings.endCallback!==null){
       this.settings.callback();
     }
+    setTimeout(()=>{
+      this.counter++;
+      this.settings.id = `printArea_${this.counter}`;
+      let PrintAreaWindow = this.getPrintWindow(); // 创建iframe
+      this.write(PrintAreaWindow.doc); // 写入内容
+      this.print(PrintAreaWindow);
+    },0)
+
 
   }
   print(PAWindow) {
@@ -40,7 +43,6 @@ export default class {
       try {
         let box = document.getElementById(this.settings.id);
         let canvasList = this.elsdom.querySelectorAll('.canvasImg')
-        // console.log(this.elsdom)
         for (let i = 0; i < canvasList.length; i++) {
           let _parent = canvasList[i].parentNode
           _parent.removeChild(canvasList[i])
@@ -126,11 +128,11 @@ export default class {
       });
     }
     let modeStyle = '<style>@page {size: portrait }</style>'
-    console.log(this.settings.mode)
+    // console.log(this.settings.mode)
     if(this.settings.mode){
       modeStyle = '<style>@page {size: landscape }</style>'
     }
-    console.log(modeStyle)
+    // console.log(modeStyle)
     return `<head><title>${this.settings.popTitle}</title>${extraHead}${links}<style type="text/css">${style}</style>${modeStyle}</head>`;
   }
   getBody() {
