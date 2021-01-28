@@ -5,7 +5,7 @@
  * @LastEditors: Do not edit
  * @FilePath: \vue-print-nb-z\src\packages\print.js
  * @Description: ...
- */ 
+ */
 import Print from './printarea.js';
 /**
  * @file 打印
@@ -33,7 +33,13 @@ export default {
 					localPrint();
 				} else {
 					// 直接全局打印
-					window.print();
+					binding.value.callback()
+					setTimeout(()=>{
+						window.print();
+						binding.value.endCallback()
+
+					})
+
 				}
 				// if(binding.value.mode){
 
@@ -50,17 +56,16 @@ export default {
 					extraHead: binding.value.extraHead, // 附加在head标签上的额外标签,使用逗号分隔
 					extraCss: binding.value.extraCss, // 额外的css连接，多个逗号分开
 					popTitle: binding.value.popTitle, // title的标题
-					mode:binding.value.mode?1:0,//横竖打印
-					callback(){
-						if(typeof binding.value.callback ==='function'){
+					mode: binding.value.mode ? 1 : 0,//横竖打印
+					callback() {
+						if (typeof binding.value.callback === 'function') {
 							binding.value.callback()
 						}
 					},
 					endCallback() { // 调用打印之后的回调事件
 						closeBtn = true;
-						if(typeof binding.value.endCallback ==='function'){
+						if (typeof binding.value.endCallback === 'function') {
 							binding.value.endCallback()
-
 						}
 					}
 				});
